@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'reviews/style.css' %}" />
+
+<h1>{{ movie.movie_text }}</h1>
+
+<ul>
+    {% for rating in movie.rating_set.all %}
+        <li>{{ rating.rating_text }} -- {{ rating.votes }} vote{{ rating.votes|pluralize }}</li>
+    {% endfor %}
+</ul>
+<br>
+<a href="{% url 'reviews:index' %}">Pick another movie.</a>

@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'reviews/style.css' %}" />
+
+<h1>{{ movie.movie_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'reviews:vote' movie.id %}" method="post">
+{% csrf_token %}
+{% for rating in movie.rating_set.all %}
+    <input type="radio" name="rating" id="rating{{ forloop.counter }}" value="{{ rating.id }}" />
+    <label for="rating{{ forloop.counter }}">{{ rating.rating_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote Here" />
+</form>

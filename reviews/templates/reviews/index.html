@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>(Movie Reviews)</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'reviews/style.css' %}" />
+</head>
+
+<body>
+    <h1>Please pick from the movies below to rate them.</h1>
+    <form>
+        {% if movie_list %}
+            {% for movie in movie_list %}
+                <a href="{% url 'reviews:detail' movie.id %}">{{ movie.movie_text }}</a>
+                <p>
+                    Year Released: {{ movie.movie_year }} <br>
+                    Genre: {{ move.genre_text }} <br>
+                    Main Actor(s): {{ movie.actor_text }} <br>
+                </p>
+                <br>
+            {% endfor %}
+        {% else %}
+            <p>No movies are available.</p>
+        {% endif %}
+    </form>
+</body>
+</html>
+

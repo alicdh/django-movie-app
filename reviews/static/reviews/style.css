@@ -1,0 +1,21 @@
+a{
+    color: lightgreen;
+}
+a:visited{
+    color: #fc74a3;
+}
+
+p{
+    font-size: 10pt;
+}
+
+body {
+    background: white url("backgroundDjango.jpg") no-repeat right bottom;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center; 
+    color: white;
+    font-family: cursive;
+    font-size: 14pt;
+    font-weight: bold;
+}
