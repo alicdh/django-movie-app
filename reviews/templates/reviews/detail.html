@@ -7,9 +7,9 @@
 
 <form action="{% url 'reviews:vote' movie.id %}" method="post">
 {% csrf_token %}
-{% for rating in movie.rating_set.all %}
-    <input type="radio" name="rating" id="rating{{ forloop.counter }}" value="{{ rating.id }}" />
-    <label for="rating{{ forloop.counter }}">{{ rating.rating_text }}</label><br />
+{% for garbage in movie.garbage_set.all %}
+    <input type="radio" name="rating" id="garbage{{ forloop.counter }}" value="{{ garbage.id }}" />
+    <label for="garbage{{ forloop.counter }}">{{ garbage.garbage_text }}</label><br />
 {% endfor %}
 <input type="submit" value="Vote Here" />
 </form>

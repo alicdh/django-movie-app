@@ -22,14 +22,14 @@ class ResultsView(generic.DetailView):
 def vote(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     try:
-        selected_rating = movie.rating_set.get(pk=request.POST['rating'])
+        selected_garbage = movie.garbage_set.get(pk=request.POST['garbage'])
     except (KeyError, Rating.DoesNotExist):
         return render(request, 'reviews/detail.html', {
             'movie': movie,
             'error_message': "You didn't select a rating.",
         })
     else:
-        selected_rating.votes += 1
-        selected_rating.save()
+        selected_garbage.votes += 1
+        selected_garbage.save()
         return HttpResponseRedirect(reverse('reviews:results', args=(movie.id)))
 

@@ -4,8 +4,8 @@
 <h1>{{ movie.movie_text }}</h1>
 
 <ul>
-    {% for rating in movie.rating_set.all %}
-        <li>{{ rating.rating_text }} -- {{ rating.votes }} vote{{ rating.votes|pluralize }}</li>
+    {% for garbage in movie.garbage_set.all %}
+        <li>{{ garbage.garbage_text }} -- {{ garbage.votes }} vote{{ garbage.votes|pluralize }}</li>
     {% endfor %}
 </ul>
 <br>
